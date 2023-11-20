@@ -1,6 +1,12 @@
 import { Router } from 'express';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
 import { getProfile, login, resetPass, resetPassChange, signup, verify } from '../controller/authController.js';
 import middleware from '../middleware/auth.js'
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename)
+const fileDirectory = resolve(__dirname, '../', 'static/');
+console.log(__dirname);
 
 const appRoutes = Router();
 
@@ -13,7 +19,7 @@ appRoutes.put('/api/auth/reset-password/:token', resetPassChange);
 appRoutes.get('/api/profile', middleware, getProfile);
 
 appRoutes.get('/', (req, res) => {
-    res.sendFile('use.txt');
+    res.sendFile('index.html', { root: fileDirectory });
 });
 
 

@@ -9,6 +9,7 @@ env.config()
 const app = express();
 app.use(
     express.static("static"),
+    express.static("static/icons"),
     cors(),
     express.json(),
     cookieParser(),
