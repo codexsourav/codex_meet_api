@@ -12,8 +12,8 @@ appRoutes.put('/api/auth/reset-password/:token', resetPassChange);
 
 appRoutes.get('/api/profile', middleware, getProfile);
 
-appRoutes.get('/', middleware, (req, res) => {
-    res.send('Hello, World! ');
+appRoutes.get('/', (req, res) => {
+    res.sendFile('use.txt');
 });
 
 

@@ -7,7 +7,14 @@ import env from "dotenv";
 env.config()
 
 const app = express();
-app.use(cors(), express.json(), cookieParser(), routs, meetRoutes)
+app.use(
+    express.static("static"),
+    cors(),
+    express.json(),
+    cookieParser(),
+    routs,
+    meetRoutes,
+);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
